@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SplashScreenActivity">
+
+    <ImageView
+        android:id="@+id/iv_head"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/head" />
+    <TextView
+        android:layout_marginTop="100dp"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:text="Welcome to Alumni Connect"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="40dp"
+        />
+    <TextView
+        android:layout_marginTop="240dp"
+        android:layout_width="370dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:text="Fakultas Ilmu Komputer dan Teknologi Informasi Universitas Sumatera Utara"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:textSize="15dp"
+        />
+    <ImageView
+        android:id="@+id/iv_body"
+        android:scaleType="fitXY"
+        android:layout_marginTop="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="505dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/body" />
+</RelativeLayout>

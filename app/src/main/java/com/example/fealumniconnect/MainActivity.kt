@@ -1,6 +1,8 @@
 package com.example.fealumniconnect
 
 import android.os.Bundle
+import android.content.Intent
+import android.os.Handler
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
