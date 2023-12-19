@@ -19,3 +19,7 @@ val SecondaryColor = Color(0xFF000000)
 val PlaceholderColor = Color(0xFFE5E5E5)
 val LightPrimaryColor = Color(0xFFFFF6EE)
 val BoldTextColor = Color(0xFF000000)
+
+
+val Outline = Color (0xFF43A162)
+val DarkerGreen = Color (0xFF176631)
