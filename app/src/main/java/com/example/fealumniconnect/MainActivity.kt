@@ -1,9 +1,11 @@
 package com.example.fealumniconnect
 
 import android.net.Network
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -34,6 +36,7 @@ import com.example.fealumniconnect.HomeScreen
 import kotlinx.coroutines.delay
 
 class MainActivity : ComponentActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -46,6 +49,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun navigation(){
     val navController = rememberNavController()
@@ -67,6 +71,9 @@ fun navigation(){
                     HomeScreen()
                 }
             }
+        }
+        composable("read_more_page") {
+            ReadMore()
         }
     }
 }

@@ -41,5 +41,3 @@ fun Header(modifier: Modifier = Modifier, title: String) {
         )
     }
 }
-
-
