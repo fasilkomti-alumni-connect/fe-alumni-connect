@@ -30,6 +30,7 @@ import com.example.fealumniconnect.ui.theme.FEAlumniConnectTheme
 import com.example.fealumniconnect.ui.screens.ChangePasswordScreen
 import com.example.fealumniconnect.ui.screens.NetworkScreen
 import com.example.fealumniconnect.ui.screens.NetworkResult
+import com.example.fealumniconnect.HomeScreen
 import kotlinx.coroutines.delay
 
 class MainActivity : ComponentActivity() {
@@ -38,9 +39,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             navigation()
             //0.1% punya huheueheue
-            ChangePasswordScreen()
-            NetworkScreen()
-            NetworkResult()
+//            ChangePasswordScreen()
+//            NetworkScreen()
+//            NetworkResult()
         }
     }
 }
@@ -62,7 +63,8 @@ fun navigation(){
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Hello Alumni Project!")
+//                    Greeting("Hello Alumni Project!")
+                    HomeScreen()
                 }
             }
         }
