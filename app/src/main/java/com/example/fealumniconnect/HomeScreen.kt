@@ -1,6 +1,10 @@
 package com.example.fealumniconnect
 
+import android.annotation.SuppressLint
+import android.os.Build
 import androidx.annotation.DrawableRes
+import androidx.annotation.RequiresApi
+import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -38,11 +42,17 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavController
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.fealumniconnect.ReadMore
 import com.example.fealumniconnect.ui.theme.DarkerGreen
 import com.example.fealumniconnect.ui.theme.Outline
 import com.example.fealumniconnect.ui.theme.Poppins
 
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun HomeScreen() {
     Column(
@@ -158,8 +168,11 @@ fun ToolbarIcon(@DrawableRes iconResId: Int, isSelected: Boolean) {
     }
 }
 
+@SuppressLint("ComposableDestinationInComposeScope")
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun ContentCard(cardInfo: CardInfo) {
+    val navController = rememberNavController()
     var expanded by remember { mutableStateOf(false) }
 
     Column (
@@ -244,7 +257,9 @@ fun ContentCard(cardInfo: CardInfo) {
                     )
 
                     TextButton(
-                        onClick = { },
+                        onClick = {
+                                  navController.navigate("read_more_page")
+                        },
                         modifier = Modifier.align(Alignment.End)
                     ) {
                         Text(
@@ -257,6 +272,7 @@ fun ContentCard(cardInfo: CardInfo) {
                 }
             }
         }
+
     }
 }
 
@@ -272,19 +288,18 @@ fun BottomNavigationBar() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height(56.dp)
-            .clip(RoundedCornerShape(20.dp))
-            .background(DarkerGreen),
+            .height(75.dp)
+            .background(color = Color.White),
         horizontalArrangement = Arrangement.SpaceAround,
         verticalAlignment = Alignment.CenterVertically
     ) {
         BottomNavItem(iconResId = R.drawable.home, label = "", isSelected = false)
+        BottomNavItem(iconResId = R.drawable.event, label = "", isSelected = false)
         BottomNavItem(iconResId = R.drawable.calendar, label = "", isSelected = false)
         BottomNavItem(iconResId = R.drawable.globe, label = "", isSelected = false)
         BottomNavItem(iconResId = R.drawable.user, label = "", isSelected = false)
     }
 }
-
 @Composable
 fun BottomNavItem(@DrawableRes iconResId: Int, label: String, isSelected: Boolean) {
     Column(
@@ -297,10 +312,7 @@ fun BottomNavItem(@DrawableRes iconResId: Int, label: String, isSelected: Boolea
             painter = painterResource(id = iconResId),
             contentDescription = null,
             colorFilter = ColorFilter.tint(if (isSelected) Color.White else Color.Gray),
-            modifier = Modifier.size(22.dp)
+            modifier = Modifier.size(30.dp)
         )
     }
 }
-
-
-

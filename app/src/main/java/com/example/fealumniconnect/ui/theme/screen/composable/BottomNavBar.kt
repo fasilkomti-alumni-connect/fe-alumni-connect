@@ -10,11 +10,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
@@ -31,10 +29,11 @@ fun BottomNavigationBar() {
         horizontalArrangement = Arrangement.SpaceAround,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        BottomNavItem(iconResId = R.drawable.ic_home, label = "", isSelected = false)
-        BottomNavItem(iconResId = R.drawable.ic_calendar, label = "", isSelected = false)
-        BottomNavItem(iconResId = R.drawable.ic_globe, label = "", isSelected = false)
-        BottomNavItem(iconResId = R.drawable.ic_user, label = "", isSelected = false)
+        BottomNavItem(iconResId = R.drawable.home, label = "", isSelected = false)
+        BottomNavItem(iconResId = R.drawable.event, label = "", isSelected = false)
+        BottomNavItem(iconResId = R.drawable.calendar, label = "", isSelected = false)
+        BottomNavItem(iconResId = R.drawable.globe, label = "", isSelected = false)
+        BottomNavItem(iconResId = R.drawable.user, label = "", isSelected = false)
     }
 }
 @Composable
