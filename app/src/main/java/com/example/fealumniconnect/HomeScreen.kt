@@ -215,7 +215,7 @@ fun ContentCard(cardInfo: CardInfo) {
                         .fillMaxWidth()
                         .padding(horizontal = 8.dp)
                 )
-
+//
                 Spacer(modifier = Modifier.height(4.dp))
 
                 if (expanded) {
