@@ -1,5 +1,6 @@
 package com.example.fealumniconnect
 
+import android.net.Network
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -26,6 +27,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.fealumniconnect.ui.theme.FEAlumniConnectTheme
+import com.example.fealumniconnect.ui.screens.ChangePasswordScreen
+import com.example.fealumniconnect.ui.screens.NetworkScreen
+import com.example.fealumniconnect.ui.screens.NetworkResult
 import kotlinx.coroutines.delay
 
 class MainActivity : ComponentActivity() {
@@ -33,6 +37,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             navigation()
+            //0.1% punya huheueheue
+            ChangePasswordScreen()
+            NetworkScreen()
+            NetworkResult()
         }
     }
 }
@@ -80,7 +88,8 @@ fun SplashScreen(navController: NavController){
         //Image rounded logo
         Spacer(modifier = Modifier.height(50.dp))
 
-        Box(modifier = Modifier.size(100.dp)
+        Box(modifier = Modifier
+            .size(100.dp)
             .border(width = 4.dp, color = Color.Transparent, shape = RoundedCornerShape(16.dp)),
             contentAlignment = Alignment.Center
         ) {
@@ -92,7 +101,8 @@ fun SplashScreen(navController: NavController){
         }
 
 
-        Box(modifier = Modifier.width((IntrinsicSize.Max))
+        Box(modifier = Modifier
+            .width((IntrinsicSize.Max))
             .border(width = 4.dp, color = Color.Transparent, shape = RoundedCornerShape(16.dp)),
             contentAlignment = Alignment.Center
         ) {
@@ -105,7 +115,8 @@ fun SplashScreen(navController: NavController){
             )
         }
 
-        Box(modifier = Modifier.width((IntrinsicSize.Max))
+        Box(modifier = Modifier
+            .width((IntrinsicSize.Max))
             .border(width = 4.dp, color = Color.Transparent, shape = RoundedCornerShape(16.dp)),
             contentAlignment = Alignment.Center
         ) {
@@ -120,7 +131,8 @@ fun SplashScreen(navController: NavController){
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        Box(modifier = Modifier.width((IntrinsicSize.Max))
+        Box(modifier = Modifier
+            .width((IntrinsicSize.Max))
             .border(width = 4.dp, color = Color.Transparent, shape = RoundedCornerShape(16.dp)),
             contentAlignment = Alignment.Center
         ) {
@@ -133,7 +145,8 @@ fun SplashScreen(navController: NavController){
             )
         }
 
-        Box(modifier = Modifier.fillMaxSize()
+        Box(modifier = Modifier
+            .fillMaxSize()
             .border(width = 4.dp, color = Color.Transparent, shape = RoundedCornerShape(16.dp)),
             contentAlignment = Alignment.Center
         ) {
