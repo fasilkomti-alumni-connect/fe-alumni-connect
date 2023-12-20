@@ -109,9 +109,14 @@ fun HomeScreen() {
             item {
                 ContentCard(card3)
             }
-        }
+            item {
+                Spacer(modifier = Modifier.height(16.dp))
+            }
 
-        BottomNavigationBar()
+            item {
+                ContentCard(card3)
+            }
+        }
     }
 }
 

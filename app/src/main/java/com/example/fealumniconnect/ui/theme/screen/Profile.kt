@@ -1,11 +1,11 @@
+package com.example.fealumniconnect.ui.theme.screen
+
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -21,7 +21,6 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -39,8 +38,7 @@ import com.example.fealumniconnect.R
 import com.example.fealumniconnect.ui.theme.screen.composable.BottomNavigationBar
 
 @Composable
-fun Profil() {
-
+public fun Profile() {
     // NavHost
     val navController = rememberNavController()
 
@@ -55,7 +53,7 @@ fun Profil() {
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
-        Header(title = "Profil")
+//        Header(title = "Profil")
         // Background image and user information
         Box(
             contentAlignment = Alignment.TopCenter,
@@ -122,8 +120,6 @@ fun Profil() {
 
             }
             }
-        // Bottom navigation bar
-        BottomNavigationBar()
     }
  }
 
@@ -211,5 +207,5 @@ fun CardItem(@DrawableRes iconResId: Int, label: String, onClick: () -> Unit) {
 @Preview(widthDp = 428, heightDp = 926)
 @Composable
 private fun ProfilPreview() {
-    Profil()
+    Profile()
 }
