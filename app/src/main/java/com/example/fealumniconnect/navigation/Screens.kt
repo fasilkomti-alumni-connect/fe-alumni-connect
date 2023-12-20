@@ -6,4 +6,5 @@ enum class Screens {
     CalendarScreen,
     NetworkScreen,
     ProfileScreen,
+    EditProfileScreen
 }

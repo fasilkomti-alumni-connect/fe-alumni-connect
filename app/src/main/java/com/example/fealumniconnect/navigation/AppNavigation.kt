@@ -27,6 +27,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.fealumniconnect.HomeScreen
 import com.example.fealumniconnect.ui.screens.NetworkScreen
+import com.example.fealumniconnect.ui.theme.screen.EditProfile
 import com.example.fealumniconnect.ui.theme.screen.Profile
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -77,17 +78,17 @@ fun AppNavigation(){
             composable(route = Screens.HomeScreen.name){
                 HomeScreen()
             }
-            composable(route = Screens.HomeScreen.name){
-                HomeScreen()
-            }
-            composable(route = Screens.HomeScreen.name){
+            composable(route = Screens.EventScreen.name){
                 HomeScreen()
             }
             composable(route = Screens.NetworkScreen.name){
                 NetworkScreen()
             }
             composable(route = Screens.ProfileScreen.name){
-                Profile()
+                Profile(navController = navController)
+            }
+            composable(route = Screens.EditProfileScreen.name){
+                EditProfile(navController = navController)
             }
         }
 

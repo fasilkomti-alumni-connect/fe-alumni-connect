@@ -17,13 +17,8 @@ val listOfNavItems = listOf(
     ),
     NavItems(
         label = "Event",
-        icon = R.drawable.event,
-        route = Screens.EventScreen.name
-    ),
-    NavItems(
-        label = "Calendar",
         icon = R.drawable.calendar,
-        route = Screens.CalendarScreen.name
+        route = Screens.EventScreen.name
     ),
     NavItems(
         label = "Network",

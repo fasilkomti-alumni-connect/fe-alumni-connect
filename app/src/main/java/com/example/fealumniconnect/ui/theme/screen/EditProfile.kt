@@ -41,11 +41,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.fealumniconnect.R
 
 
 @Composable
-fun EditProfile() {
+fun EditProfile(navController: NavController) {
+
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -225,5 +227,5 @@ fun FormProfile(modifier: Modifier = Modifier, title: String, text: String,) {
 @Preview(widthDp = 428, heightDp = 1442)
 @Composable
 private fun EditProfilPreview() {
-    EditProfile()
+//    EditProfile(navController = navController)
 }
