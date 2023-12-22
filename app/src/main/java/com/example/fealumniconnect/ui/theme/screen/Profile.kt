@@ -1,11 +1,11 @@
+package com.example.fealumniconnect.ui.theme.screen
+
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -21,7 +21,6 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -34,15 +33,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.fealumniconnect.R
-import com.example.fealumniconnect.ui.theme.screen.composable.BottomNavigationBar
+import com.example.fealumniconnect.navigation.Screens
 
 @Composable
-fun Profil() {
-
+public fun Profile(navController: NavController) {
     // NavHost
-    val navController = rememberNavController()
+    val navController : NavHostController = rememberNavController()
 
 //    // Scaffold
 //    scaffold(
@@ -55,7 +56,7 @@ fun Profil() {
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
-        Header(title = "Profil")
+//        Header(title = "Profil")
         // Background image and user information
         Box(
             contentAlignment = Alignment.TopCenter,
@@ -117,26 +118,25 @@ fun Profil() {
 //        Spacer(modifier = Modifier.height(20.dp))
 
                 // Card with menu items and Logout button
-                CardDetail()
+                CardDetail(navController = navController)
 
 
             }
-            }
-        // Bottom navigation bar
-        BottomNavigationBar()
+        }
     }
- }
+}
 
 
 @Composable
-fun CardDetail(modifier: Modifier = Modifier) {
+fun CardDetail(modifier: Modifier = Modifier, navController: NavHostController) {
+//    val navController : NavHostController = rememberNavController()
     Card(
         shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp,),
         colors = CardDefaults.cardColors(
             containerColor = Color.White
         ),
 
-    ) {
+        ) {
         Column (
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -146,10 +146,25 @@ fun CardDetail(modifier: Modifier = Modifier) {
         )
         {
             // Menu items
-            CardItem(iconResId = R.drawable.ic_user, label = "Edit Profile", onClick = { })
-            CardItem(iconResId = R.drawable.ic_setting, label = "Pengaturan", onClick = {})
-            CardItem(iconResId = R.drawable.ic_bantuan, label = "Pusat Bantuan", onClick = {})
-            CardItem(iconResId = R.drawable.ic_info, label = "Tentang Kami", onClick = {})
+            CardItem(iconResId = R.drawable.ic_user, label = "Edit Profile", routeDestination = Screens.EditProfileScreen.name, navController = navController)
+            CardItem(
+                iconResId = R.drawable.ic_setting,
+                label = "Pengaturan",
+                routeDestination = "",
+                navController = navController
+            )
+            CardItem(
+                iconResId = R.drawable.ic_bantuan,
+                label = "Pusat Bantuan",
+                routeDestination = "",
+                navController = navController
+            )
+            CardItem(
+                iconResId = R.drawable.ic_info,
+                label = "Tentang Kami",
+                routeDestination = "",
+                navController = navController
+            )
 
             // Add some spacing between menu items and Logout button
             Spacer(modifier = Modifier.height(180.dp))
@@ -181,13 +196,26 @@ fun CardDetail(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun CardItem(@DrawableRes iconResId: Int, label: String, onClick: () -> Unit) {
+fun CardItem(
+    @DrawableRes iconResId: Int,
+    label: String,
+    routeDestination: String,
+    navController: NavHostController
+) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = onClick)
             .padding(vertical = 12.dp)
+//            .clickable {
+//                navController.navigate(routeDestination){
+//                    popUpTo(navController.graph.findStartDestination().id){
+//                        saveState = true
+//                    }
+//                    launchSingleTop = true
+//                    restoreState = true
+//                }
+//            }
     ) {
         Icon(
             painter = painterResource(id = iconResId),
@@ -211,5 +239,5 @@ fun CardItem(@DrawableRes iconResId: Int, label: String, onClick: () -> Unit) {
 @Preview(widthDp = 428, heightDp = 926)
 @Composable
 private fun ProfilPreview() {
-    Profil()
+//    Profile(navController = navController)
 }

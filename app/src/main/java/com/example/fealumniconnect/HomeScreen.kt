@@ -111,7 +111,7 @@ fun HomeScreen() {
             }
         }
 
-        BottomNavigationBar()
+//        BottomNavigationBar()
     }
 }
 

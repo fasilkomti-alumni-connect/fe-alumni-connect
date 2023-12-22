@@ -33,6 +33,7 @@ import com.example.fealumniconnect.ui.screens.ChangePasswordScreen
 import com.example.fealumniconnect.ui.screens.NetworkScreen
 import com.example.fealumniconnect.ui.screens.NetworkResult
 import com.example.fealumniconnect.HomeScreen
+import com.example.fealumniconnect.navigation.AppNavigation
 import kotlinx.coroutines.delay
 
 class MainActivity : ComponentActivity() {
@@ -63,13 +64,14 @@ fun navigation(){
         composable("main_screen"){
             FEAlumniConnectTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-//                    Greeting("Hello Alumni Project!")
-                    HomeScreen()
-                }
+//                Surface(
+//                    modifier = Modifier.fillMaxSize(),
+//                    color = MaterialTheme.colorScheme.background
+//                ) {
+////                    Greeting("Hello Alumni Project!")
+//                    HomeScreen()
+//                }
+                AppNavigation()
             }
         }
         composable("read_more_page") {

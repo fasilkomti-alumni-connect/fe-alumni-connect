@@ -1,4 +1,3 @@
-
 package com.example.fealumniconnect.ui.theme.screen
 
 import Header
@@ -41,11 +40,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.fealumniconnect.R
 
 
 @Composable
-fun EditProfile() {
+fun EditProfile(navController: NavController) {
+
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -101,7 +102,7 @@ fun EditProfile() {
                 .fillMaxWidth()
         ) {
             Column ( modifier = Modifier.fillMaxSize(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
+                horizontalAlignment = Alignment.CenterHorizontally,
             ){
                 // Add some spacing between menu items and Logout button
                 Spacer(modifier = Modifier.height(24.dp))
@@ -225,5 +226,5 @@ fun FormProfile(modifier: Modifier = Modifier, title: String, text: String,) {
 @Preview(widthDp = 428, heightDp = 1442)
 @Composable
 private fun EditProfilPreview() {
-    EditProfile()
+//    EditProfile(navController = navController)
 }
