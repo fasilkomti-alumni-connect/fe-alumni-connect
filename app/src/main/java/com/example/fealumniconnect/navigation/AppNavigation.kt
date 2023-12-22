@@ -84,7 +84,7 @@ fun AppNavigation(){
                 EventScreen()
             }
             composable(route = Screens.CalendarScreen.name){
-                CalendarScreen()
+                CalendarScreen(navController = navController)
             }
             composable(route = Screens.NetworkScreen.name){
                 NetworkScreen()

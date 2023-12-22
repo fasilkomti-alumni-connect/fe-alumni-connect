@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -31,21 +32,21 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import java.time.LocalDate
 import java.time.format.TextStyle.FULL
 import java.util.Locale
 
+import com.example.fealumniconnect.ui.screens.EventScreen
 import com.example.fealumniconnect.R
+import com.example.fealumniconnect.navigation.Screens
 import com.example.fealumniconnect.ui.theme.PrimaryColor
 
-//private val Typography.h5: TextStyle
-//    get() {
-//        TODO("Not yet implemented")
-//    }
+
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun CalendarScreen() {
+fun CalendarScreen(navController: NavController) {
     val today = LocalDate.now()
     val currentMonth = today.month.getDisplayName(FULL, Locale.getDefault())
     val currentYear = today.year
@@ -227,6 +228,7 @@ fun CalendarScreen() {
                             }
                         }
                     }
+
                     Box(contentAlignment = Alignment.TopCenter) {
                         Column(
                             horizontalAlignment = Alignment.CenterHorizontally,
@@ -242,7 +244,7 @@ fun CalendarScreen() {
                                 onClick = {
                                     // Handle klik tombol "Buat Event" di sini (tambahkan logika navigasi ke halaman yang diinginkan)
                                     // Contoh:
-//                                    navController.navigate("target_halaman")
+                                    navController.navigate(Screens.EventScreen.name)
                                 },
                                 modifier = Modifier
                                     .fillMaxWidth()
@@ -262,7 +264,6 @@ fun CalendarScreen() {
                             }
                         }
                     }
-
                 }
             }
         }
