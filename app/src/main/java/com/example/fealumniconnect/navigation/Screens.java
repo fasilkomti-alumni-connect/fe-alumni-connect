@@ -5,6 +5,8 @@ public enum Screens {
     CalendarScreen,
     EventScreen,
     NetworkScreen,
+
+    NetworkResult,
     ProfileScreen,
     EditProfileScreen
 }

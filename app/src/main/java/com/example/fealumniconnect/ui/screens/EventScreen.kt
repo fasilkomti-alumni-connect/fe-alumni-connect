@@ -23,16 +23,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType.Companion.Text
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import java.util.*
 
 import com.example.fealumniconnect.R
+import com.example.fealumniconnect.navigation.Screens
 import com.example.fealumniconnect.ui.theme.PrimaryColor
 
 data class Event(val date: String, val title: String, val participants: List<String>)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun EventScreen() {
+fun EventScreen(navController: NavController) {
 
     var events by remember { mutableStateOf(emptyList<Event>()) }
     var showAddParticipantDialog by remember { mutableStateOf(false) }
@@ -209,6 +211,7 @@ fun EventScreen() {
             Button(
                 onClick = {
                     // TODO: Implementasi untuk menyimpan event
+                    navController.navigate(Screens.HomeScreen.name)
                 },
                 modifier = Modifier
                     .weight(1f)
@@ -220,6 +223,7 @@ fun EventScreen() {
             Button(
                 onClick = {
                     // TODO: Implementasi untuk membatalkan event
+                    navController.navigate(Screens.CalendarScreen.name)
                 },
                 modifier = Modifier
                     .weight(1f)
