@@ -146,7 +146,8 @@ fun CardDetail(modifier: Modifier = Modifier, navController: NavHostController) 
         )
         {
             // Menu items
-            CardItem(iconResId = R.drawable.ic_user, label = "Edit Profile", routeDestination = Screens.EditProfileScreen.name, navController = navController)
+            CardItem(
+                iconResId = R.drawable.ic_user, label = "Edit Profile", routeDestination = "EditProfile.kt", navController = navController)
             CardItem(
                 iconResId = R.drawable.ic_setting,
                 label = "Pengaturan",
@@ -208,13 +209,6 @@ fun CardItem(
             .fillMaxWidth()
             .padding(vertical = 12.dp)
 //            .clickable {
-//                navController.navigate(routeDestination){
-//                    popUpTo(navController.graph.findStartDestination().id){
-//                        saveState = true
-//                    }
-//                    launchSingleTop = true
-//                    restoreState = true
-//                }
 //            }
     ) {
         Icon(
