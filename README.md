@@ -13,17 +13,17 @@ Alumni Connect adalah sebuah aplikasi yang dibangun sebagai wadah yang mempermud
 ## Screenshots
 
   -	Home Screen: Pada halaman ini memuat daftar aktivitas seperti pencapaian mahasiswa/dosen, perlombaan, dan berbagai informasi lainnya seputar kegiatan yang dilaksanakan  mahasiswa maupun dosen di Fasilkom-TI.
-<img src="app/Screenshot/Home Screen.png" width="1080" height="2220"/>
+<img src="app/Screenshot/Home Screen.png" width="540" height="1110"/>
   -	Read More: Ini merupakan halaman yang menampilkan informasi secara detail mengenai aktivitas-aktivitas yang ada diinformasikan di Home Screen.
 <img src="app/Screenshot/read more.png"/>
   -	Calendar: Disini memuat kalender serta sebagai halaman untuk  menambahkan event yang nantinya akan diarahkan ke halaman Event untuk menambahkannya.
-<img src="app/Screenshot/calendar.png" width="1080" height="2220"/>
+<img src="app/Screenshot/calendar.png" width="540" height="1110"/>
   -	Event: halaman ini sebagai temat menambahkan acara yang akan diselenggarakan fakultas dengan membuat tema acara beserta deskripsi dan lampiran, membuat jadwal, undangan untuk peserta, juga menambahkan link Google Meet sebagai tempat melaksanakan acara secara online maupun menambahakan lokasi acara untuk acara offline.
-<img src="app/Screenshot/Event.png" width="1080" height="2220"/>
+<img src="app/Screenshot/Event.png" width="540" height="1110"/>
   -	My Network: Di halaman ini kita bisa mencari daftar alumni Fasilkom-TI serta informasi dari alumni yang sudah melakukan registari dan sudah terdaftar di Data Base.
-<img src="app/Screenshot/My Network.png" width="1080" height="2220"/>
+<img src="app/Screenshot/My Network.png" width="540" height="1110"/>
   -	User Profile: Di halaman ini, pengguna bisa mengakses help desk, informasi tentang aplikasi, pengaturan, serta dapat mengedit informasi pengguna.
-<img src="app/Screenshot/user profile.png" width="1080" height="2220"/>
+<img src="app/Screenshot/user profile.png" width="540" height="1110"/>
 
 ## API Key
 Alumni Connect API adalah API RESTful stateless yang diprogram untuk membuat, meng-edit, menyimpan, dan menghapus user (alumni), berita, dan penjadwalan. API ini dibangun menggunakan NodeJS dan menyimpan data menggunakan database FireStore.
