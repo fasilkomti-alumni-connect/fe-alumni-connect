@@ -1,4 +1,8 @@
-Fasilkom-TI Alumni Connect adalah sebuah aplikasi yang dibangun sebagai wadah yang mempermudah para alumni Fakultas Ilmu Komputer dan Teknologi Informasi menjalin komunikasi untuk memperkuat ikatan persaudaraan antar sesama alumni, serta menjadi aplikasi yang menyediakan ruang diskusi yang bertujuan untuk mendukung perkembangan Fakultas.
+# Alumni Connect Apps Menggunakan Jetpack Compose
+
+Alumni Connect adalah sebuah aplikasi yang dibangun sebagai wadah yang mempermudah para alumni Fakultas Ilmu Komputer dan Teknologi Informasi menjalin komunikasi untuk memperkuat ikatan persaudaraan antar sesama alumni dan fakultas, yang memuat berbagai aktivitas di Fakultas, serta menjadi aplikasi yang menyediakan ruang diskusi yang bertujuan untuk mendukung perkembangan Fakultas.
+
+## Screenshots
 Didalam Aplikasi ini menyediakan beberapa halaman diantaranya:
   -	Home Screen: Pada halaman ini memuat daftar aktivitas seperti pencapaian mahasiswa/dosen, perlombaan, dan berbagai informasi lainnya seputar kegiatan yang dilaksanakan  mahasiswa maupun dosen di Fasilkom-TI.
   -	Read More: Ini merupakan halaman yang menampilkan informasi secara detail mengenai aktivitas-aktivitas yang ada diinformasikan di Home Screen.
