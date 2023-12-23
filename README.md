@@ -17,7 +17,7 @@ Alumni Connect adalah sebuah aplikasi yang dibangun sebagai wadah yang mempermud
   -	Read More: Ini merupakan halaman yang menampilkan informasi secara detail mengenai aktivitas-aktivitas yang ada diinformasikan di Home Screen.
 <img src="app/Screenshot/read more.png" width="270" height="555"/>
   -	Calendar: Disini memuat kalender serta sebagai halaman untuk  menambahkan event yang nantinya akan diarahkan ke halaman Event untuk menambahkannya.
-<img src="app/Screenshot/calendar.png" width="270" height="555"/>
+<img src="app/Screenshot/Calendar.png" width="270" height="555"/>
   -	Event: halaman ini sebagai temat menambahkan acara yang akan diselenggarakan fakultas dengan membuat tema acara beserta deskripsi dan lampiran, membuat jadwal, undangan untuk peserta, juga menambahkan link Google Meet sebagai tempat melaksanakan acara secara online maupun menambahakan lokasi acara untuk acara offline.
 <img src="app/Screenshot/Event.png" width="270" height="555"/>
   -	My Network: Di halaman ini kita bisa mencari daftar alumni Fasilkom-TI serta informasi dari alumni yang sudah melakukan registari dan sudah terdaftar di Data Base.
