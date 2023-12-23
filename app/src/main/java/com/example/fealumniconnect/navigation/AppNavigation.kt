@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
@@ -32,12 +33,14 @@ import com.example.fealumniconnect.ui.screens.NetworkResult
 import com.example.fealumniconnect.ui.screens.NetworkScreen
 import com.example.fealumniconnect.ui.theme.screen.EditProfile
 import com.example.fealumniconnect.ui.theme.screen.Profile
+import com.example.fealumniconnect.ui.viewmodel.HomeViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun AppNavigation(){
     val navController : NavHostController = rememberNavController()
+    val viewModel: HomeViewModel = viewModel()
 
     Scaffold (
         bottomBar = {
@@ -79,7 +82,7 @@ fun AppNavigation(){
             modifier = Modifier.padding(paddingValues)
         ) {
             composable(route = Screens.HomeScreen.name){
-                HomeScreen()
+                HomeScreen(navController = navController, viewModel = viewModel)
             }
             composable(route = Screens.EventScreen.name){
                 EventScreen(navController = navController)

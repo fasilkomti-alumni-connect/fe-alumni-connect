@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.DrawableRes
 import androidx.annotation.RequiresApi
-import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -27,6 +26,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -42,19 +42,18 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavBackStackEntry
-import androidx.navigation.NavController
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import com.example.fealumniconnect.ReadMore
+import androidx.navigation.NavHostController
+import com.example.fealumniconnect.data.DataItem
 import com.example.fealumniconnect.ui.theme.DarkerGreen
 import com.example.fealumniconnect.ui.theme.Outline
 import com.example.fealumniconnect.ui.theme.Poppins
+import com.example.fealumniconnect.ui.viewmodel.HomeViewModel
 
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(viewModel: HomeViewModel, navController: NavHostController) {
+    val newsData = viewModel.newsData.collectAsState()
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -64,51 +63,178 @@ fun HomeScreen() {
 
         Spacer(modifier = Modifier.height(5.dp))
 
+        Text(
+            text = "Jumlah berita: " + newsData.value.size.toString(),
+            fontFamily = Poppins,
+            fontWeight = FontWeight.ExtraBold,
+            fontSize = 10.sp,
+            style = TextStyle(
+                lineHeight = 10.sp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 8.dp)
+        )
+
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
                 .weight(1f)
         ) {
-            val card1 = CardInfo(
-                imageResourceId = R.drawable.img_1,
-                title = "Ipsum nunc aliquet bibendum enim facilisis gravida neque convallis ",
-                date = "xx xxxxxx xxxx",
-                description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sapien et ligula ullamcorper malesuada proin libero nunc. Lobortis scelerisque fermentum dui faucibus in. Eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Sit amet commodo nulla facilisi nullam. Risus pretium quam vulputate dignissim suspendisse. Vel facilisis volutpat est velit egestas. Orci sagittis eu volutpat odio facilisis mauris sit amet."
-            )
+//            val card1 = CardInfo(
+//                imageResourceId = R.drawable.img_1,
+//                title = "Ipsum nunc aliquet bibendum enim facilisis gravida neque convallis ",
+//                date = "xx xxxxxx xxxx",
+//                description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sapien et ligula ullamcorper malesuada proin libero nunc. Lobortis scelerisque fermentum dui faucibus in. Eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Sit amet commodo nulla facilisi nullam. Risus pretium quam vulputate dignissim suspendisse. Vel facilisis volutpat est velit egestas. Orci sagittis eu volutpat odio facilisis mauris sit amet."
+//            )
+//
+//            val card2 = CardInfo(
+//                imageResourceId = R.drawable.img_2,
+//                title = "Diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet",
+//                date = "xx xxxxxx xxxx",
+//                description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc sed blandit libero volutpat sed cras ornare arcu. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Enim nunc faucibus a pellentesque sit amet porttitor eget dolor. Velit laoreet id donec ultrices tincidunt arcu non. A erat nam at lectus urna duis convallis convallis."
+//            )
+//
+//            val card3 = CardInfo(
+//                imageResourceId = R.drawable.img_3,
+//                title = "Enim ut sem viverra aliquet eget sit amet tellus cras adipiscing enim",
+//                date = "xx xxxxxx xxxx",
+//                description = "Adipiscing at in tellus integer feugiat scelerisque. Ullamcorper velit sed ullamcorper morbi tincidunt ornare. Turpis in eu mi bibendum neque egestas congue. Sit amet luctus venenatis lectus magna. Suspendisse in est ante in nibh mauris cursus mattis molestie."
+//            )
+            
+            items(count = newsData.value.size){
+//                ContentCard(newsData.value[it], navController, viewModel)
+                var expanded by remember { mutableStateOf(false) }
+                Text(
+                    text = "Jumlah berita:",
+                    fontFamily = Poppins,
+                    fontWeight = FontWeight.ExtraBold,
+                    fontSize = 10.sp,
+                    style = TextStyle(
+                        lineHeight = 10.sp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 8.dp)
+                )
+                Column (
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Card(
+                        modifier = Modifier
+                            .width(280.dp)
+                            .height(240.dp),
+                        elevation = CardDefaults.cardElevation(1.dp),
+                        colors = CardDefaults.cardColors(
+                            containerColor = Color.White
+                        )
+                    ) {
+                        Column(modifier = Modifier
+                            .fillMaxWidth()
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.img_1),
+                                contentDescription = null,
+                                contentScale = ContentScale.FillBounds,
+                                modifier = Modifier
+                                    .height(130.dp)
+                                    .fillMaxWidth()
+                                    .clip(RoundedCornerShape(12.dp))
+                            )
 
-            val card2 = CardInfo(
-                imageResourceId = R.drawable.img_2,
-                title = "Diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet",
-                date = "xx xxxxxx xxxx",
-                description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc sed blandit libero volutpat sed cras ornare arcu. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Enim nunc faucibus a pellentesque sit amet porttitor eget dolor. Velit laoreet id donec ultrices tincidunt arcu non. A erat nam at lectus urna duis convallis convallis."
-            )
+                            Spacer(modifier = Modifier.height(6.dp))
 
-            val card3 = CardInfo(
-                imageResourceId = R.drawable.img_3,
-                title = "Enim ut sem viverra aliquet eget sit amet tellus cras adipiscing enim",
-                date = "xx xxxxxx xxxx",
-                description = "Adipiscing at in tellus integer feugiat scelerisque. Ullamcorper velit sed ullamcorper morbi tincidunt ornare. Turpis in eu mi bibendum neque egestas congue. Sit amet luctus venenatis lectus magna. Suspendisse in est ante in nibh mauris cursus mattis molestie."
-            )
+                            Text(
+                                text = newsData.value[it].namaInfo ?: "error",
+                                fontFamily = Poppins,
+                                fontWeight = FontWeight.ExtraBold,
+                                fontSize = 10.sp,
+                                style = TextStyle(
+                                    lineHeight = 10.sp),
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 8.dp)
+                            )
 
-            item {
-                ContentCard(card1)
+                            Spacer(modifier = Modifier.height(1.dp))
+
+//                Text(
+//                    text = cardInfo.date,
+//                    fontFamily = Poppins,
+//                    fontWeight = FontWeight.ExtraLight,
+//                    color = Color.LightGray,
+//                    fontSize = 9.sp,
+//                    modifier = Modifier
+//                        .fillMaxWidth()
+//                        .padding(horizontal = 8.dp)
+//                )
+////
+//                Spacer(modifier = Modifier.height(4.dp))
+
+                            if (expanded) {
+                                Text(
+                                    text = newsData.value[it].ketInfo.toString(),
+                                    fontFamily = Poppins,
+                                    fontWeight = FontWeight.Thin,
+                                    fontSize = 10.sp,
+                                    style = TextStyle(
+                                        lineHeight = 10.sp),
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(horizontal = 8.dp)
+                                )
+                            } else {
+                                Text(
+                                    text = newsData.value[it].ketInfo?.take(100) ?: "",
+                                    fontFamily = Poppins,
+                                    fontWeight = FontWeight.Thin,
+                                    fontSize = 10.sp,
+                                    style = TextStyle(
+                                        lineHeight = 10.sp),
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(horizontal = 8.dp)
+                                )
+
+                                TextButton(
+                                    onClick = {
+                                        navController.navigate("read_more_page")
+                                    },
+                                    modifier = Modifier.align(Alignment.End)
+                                ) {
+                                    Text(
+                                        "Read More",
+                                        fontSize = 8.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = Outline
+                                    )
+                                }
+                            }
+                        }
+                    }
+
+                }
             }
+            
+//            item {
+//                ContentCard(card1)
+//            }
 
             item {
                 Spacer(modifier = Modifier.height(16.dp))
             }
 
-            item {
-                ContentCard(card2)
-            }
-
-            item {
-                Spacer(modifier = Modifier.height(16.dp))
-            }
-
-            item {
-                ContentCard(card3)
-            }
+//            item {
+//                ContentCard(card2)
+//            }
+//
+//            item {
+//                Spacer(modifier = Modifier.height(16.dp))
+//            }
+//
+//            item {
+//                ContentCard(card3)
+//            }
         }
 
 //        BottomNavigationBar()
@@ -171,8 +297,8 @@ fun ToolbarIcon(@DrawableRes iconResId: Int, isSelected: Boolean) {
 @SuppressLint("ComposableDestinationInComposeScope")
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun ContentCard(cardInfo: CardInfo) {
-    val navController = rememberNavController()
+fun ContentCard(dataItem: DataItem, navController: NavHostController, viewModel: HomeViewModel) {
+//    val navController = rememberNavController()
     var expanded by remember { mutableStateOf(false) }
 
     Column (
@@ -193,7 +319,7 @@ fun ContentCard(cardInfo: CardInfo) {
                 .fillMaxWidth()
             ) {
                 Image(
-                    painter = painterResource(id = cardInfo.imageResourceId),
+                    painter = painterResource(id = R.drawable.img_1),
                     contentDescription = null,
                     contentScale = ContentScale.FillBounds,
                     modifier = Modifier
@@ -205,7 +331,7 @@ fun ContentCard(cardInfo: CardInfo) {
                 Spacer(modifier = Modifier.height(6.dp))
 
                 Text(
-                    text = cardInfo.title,
+                    text = dataItem.namaInfo!!,
                     fontFamily = Poppins,
                     fontWeight = FontWeight.ExtraBold,
                     fontSize = 10.sp,
@@ -218,22 +344,22 @@ fun ContentCard(cardInfo: CardInfo) {
 
                 Spacer(modifier = Modifier.height(1.dp))
 
-                Text(
-                    text = cardInfo.date,
-                    fontFamily = Poppins,
-                    fontWeight = FontWeight.ExtraLight,
-                    color = Color.LightGray,
-                    fontSize = 9.sp,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 8.dp)
-                )
-//
-                Spacer(modifier = Modifier.height(4.dp))
+//                Text(
+//                    text = cardInfo.date,
+//                    fontFamily = Poppins,
+//                    fontWeight = FontWeight.ExtraLight,
+//                    color = Color.LightGray,
+//                    fontSize = 9.sp,
+//                    modifier = Modifier
+//                        .fillMaxWidth()
+//                        .padding(horizontal = 8.dp)
+//                )
+////
+//                Spacer(modifier = Modifier.height(4.dp))
 
                 if (expanded) {
                     Text(
-                        text = cardInfo.description,
+                        text = dataItem.ketInfo.toString(),
                         fontFamily = Poppins,
                         fontWeight = FontWeight.Thin,
                         fontSize = 10.sp,
@@ -245,7 +371,7 @@ fun ContentCard(cardInfo: CardInfo) {
                     )
                 } else {
                     Text(
-                        text = cardInfo.description.take(100),
+                        text = dataItem.ketInfo?.take(100) ?: "",
                         fontFamily = Poppins,
                         fontWeight = FontWeight.Thin,
                         fontSize = 10.sp,
