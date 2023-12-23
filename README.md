@@ -31,7 +31,7 @@ API ini memerlukan dua aplikasi untuk dapat berjalan:
 - NodeJS ([Download](https://nodejs.org/en/download/))
 - FireStore ([FireBase](https://firebase.google.com/))
 
-API ini dapat diakses melalui link dibawah ini:
+API ini dapat diakses melalui URL dibawah ini:
 ```
 https://alumni-usu-server.vercel.app/api/v1/cms
 ```
