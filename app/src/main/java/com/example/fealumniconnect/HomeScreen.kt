@@ -256,7 +256,7 @@ fun Toolbar() {
         Spacer(modifier = Modifier.width(8.dp))
 
         Text(
-            text = "Hello, Kokotiii Said!",
+            text = "Halo Para Alumni!",
             fontFamily = Poppins,
             color = Color.Black,
             fontWeight = FontWeight.Bold,
