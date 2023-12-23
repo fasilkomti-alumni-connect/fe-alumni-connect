@@ -130,7 +130,7 @@ fun Toolbar() {
         Spacer(modifier = Modifier.width(8.dp))
 
         Text(
-            text = "Hello, Username!",
+            text = "Hello, Kokotiii Said!",
             fontFamily = Poppins,
             color = Color.Black,
             fontWeight = FontWeight.Bold,
@@ -283,36 +283,36 @@ data class CardInfo(
     val description: String
 )
 
-@Composable
-fun BottomNavigationBar() {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(75.dp)
-            .background(color = Color.White),
-        horizontalArrangement = Arrangement.SpaceAround,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        BottomNavItem(iconResId = R.drawable.home, label = "", isSelected = false)
-        BottomNavItem(iconResId = R.drawable.event, label = "", isSelected = false)
-        BottomNavItem(iconResId = R.drawable.calendar, label = "", isSelected = false)
-        BottomNavItem(iconResId = R.drawable.globe, label = "", isSelected = false)
-        BottomNavItem(iconResId = R.drawable.user, label = "", isSelected = false)
-    }
-}
-@Composable
-fun BottomNavItem(@DrawableRes iconResId: Int, label: String, isSelected: Boolean) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-        modifier = Modifier
-            .clickable { /* Handle navigation here */ }
-    ) {
-        Image(
-            painter = painterResource(id = iconResId),
-            contentDescription = null,
-            colorFilter = ColorFilter.tint(if (isSelected) Color.White else Color.Gray),
-            modifier = Modifier.size(30.dp)
-        )
-    }
-}
+//@Composable
+//fun BottomNavigationBar() {
+//    Row(
+//        modifier = Modifier
+//            .fillMaxWidth()
+//            .height(75.dp)
+//            .background(color = Color.White),
+//        horizontalArrangement = Arrangement.SpaceAround,
+//        verticalAlignment = Alignment.CenterVertically
+//    ) {
+//        BottomNavItem(iconResId = R.drawable.home, label = "", isSelected = false)
+//        BottomNavItem(iconResId = R.drawable.event, label = "", isSelected = false)
+//        BottomNavItem(iconResId = R.drawable.calendar, label = "", isSelected = false)
+//        BottomNavItem(iconResId = R.drawable.globe, label = "", isSelected = false)
+//        BottomNavItem(iconResId = R.drawable.user, label = "", isSelected = false)
+//    }
+//}
+//@Composable
+//fun BottomNavItem(@DrawableRes iconResId: Int, label: String, isSelected: Boolean) {
+//    Column(
+//        horizontalAlignment = Alignment.CenterHorizontally,
+//        verticalArrangement = Arrangement.Center,
+//        modifier = Modifier
+//            .clickable { /* Handle navigation here */ }
+//    ) {
+//        Image(
+//            painter = painterResource(id = iconResId),
+//            contentDescription = null,
+//            colorFilter = ColorFilter.tint(if (isSelected) Color.White else Color.Gray),
+//            modifier = Modifier.size(30.dp)
+//        )
+//    }
+//}

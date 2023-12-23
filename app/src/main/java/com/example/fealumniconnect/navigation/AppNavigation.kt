@@ -28,6 +28,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.fealumniconnect.HomeScreen
 import com.example.fealumniconnect.ui.screens.CalendarScreen
 import com.example.fealumniconnect.ui.screens.EventScreen
+import com.example.fealumniconnect.ui.screens.NetworkResult
 import com.example.fealumniconnect.ui.screens.NetworkScreen
 import com.example.fealumniconnect.ui.theme.screen.EditProfile
 import com.example.fealumniconnect.ui.theme.screen.Profile
@@ -81,19 +82,22 @@ fun AppNavigation(){
                 HomeScreen()
             }
             composable(route = Screens.EventScreen.name){
-                EventScreen()
+                EventScreen(navController = navController)
             }
             composable(route = Screens.CalendarScreen.name){
                 CalendarScreen(navController = navController)
             }
             composable(route = Screens.NetworkScreen.name){
-                NetworkScreen()
+                NetworkScreen(navController = navController)
             }
             composable(route = Screens.ProfileScreen.name){
                 Profile(navController = navController)
             }
             composable(route = Screens.EditProfileScreen.name){
                 EditProfile(navController = navController)
+            }
+            composable(route = Screens.NetworkResult.name){
+                NetworkResult(navController = navController)
             }
         }
 

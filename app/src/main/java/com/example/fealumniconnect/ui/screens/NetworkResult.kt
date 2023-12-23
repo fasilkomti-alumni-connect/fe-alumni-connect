@@ -34,7 +34,9 @@ import androidx.compose.ui.tooling.preview.Preview
 // import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.withStyle
+import androidx.navigation.NavController
 import com.example.fealumniconnect.R
+import com.example.fealumniconnect.navigation.Screens
 import com.example.fealumniconnect.ui.theme.*
 
 
@@ -42,8 +44,8 @@ import com.example.fealumniconnect.ui.theme.*
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview
 @Composable
-fun NetworkResult() {
-
+fun NetworkResult(navController: NavController) {
+//
     Box(contentAlignment = Alignment.Center) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -60,6 +62,28 @@ fun NetworkResult() {
                         .fillMaxWidth()
                         .background(Color.White)
                 ) {
+
+                    Button(
+                        onClick = {
+                            // TODO: Implementasi untuk membatalkan event
+                            navController.navigate(Screens.NetworkScreen.name)
+                        },
+                        modifier = Modifier
+                            .size(40.dp) // Menentukan ukuran tombol
+                            .clip(CircleShape) // Menggunakan shape CircleShape untuk membuatnya bulat
+                            .background(MaterialTheme.colorScheme.primary) // Menentukan warna latar belakang (sesuaikan dengan tema Anda)
+                            .padding(8.dp) // Menambahkan padding agar ikon tidak terlalu dekat dengan batas tombol
+                    ) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_arrow),
+                            contentDescription = null,
+                            tint = Color.White, // Sesuaikan warna ikon dengan kebutuhan Anda
+                            modifier = Modifier.size(25.dp) // Menentukan ukuran ikon
+                        )
+                    }
+
+
+
                     Text(
                         text = "Network",
                         style = TextStyle(

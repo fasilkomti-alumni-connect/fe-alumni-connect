@@ -40,13 +40,14 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ColorFilter
-
+import androidx.navigation.NavController
+import com.example.fealumniconnect.navigation.Screens
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview
 @Composable
-fun NetworkScreen() {
+fun NetworkScreen(navController: NavController) {
     var nama by remember { mutableStateOf("") }
     var isNamaError by remember { mutableStateOf(false) }
     var angkatan by remember { mutableStateOf("") }
@@ -68,6 +69,19 @@ fun NetworkScreen() {
                         .fillMaxWidth()
                         .background(Color.White)
                 ) {
+
+//                    Button(
+//                        onClick = {
+//                            // TODO: Implementasi untuk membatalkan event
+//                            navController.navigate(Screens.CalendarScreen.name)
+//                        },
+//                        modifier = Modifier
+//                            .weight(1f)
+//                            .padding(start = 8.dp)
+//                    ){
+//
+//                    }
+
                     Icon(
                         painter = painterResource(id = R.drawable.ic_arrow),
                         contentDescription = null,
@@ -233,7 +247,9 @@ fun NetworkScreen() {
 
 
                     Button(
-                        onClick = {},
+                        onClick = {
+                            navController.navigate(Screens.NetworkResult.name)
+                        },
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(horizontal = 20.dp)
